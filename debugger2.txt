@@ -1,0 +1,18 @@
+Name: Jason Nelson
+File: debugger2.txt, where I talk about my use of a debugger with program 2
+
+	I did not end up having much success using a debugger to solve a problem I was having when working on this 
+ 	assignment, but I tried!  I had trouble implementing the data structure for this program.  I had successfully
+ 	implemented a binary search tree in CS163.  So I assumed plopping one in to this program would be really easy,
+	however figuring out how to make the nodes function in the same way ended up being a challenge for me.  At first
+	I only had set and get functions for the node, and when inserting nodes in to the tree only the first node would
+	show up.  All the subsequent insertions would do nothing, and I was really unsure as to why, so I attempted to use
+	gdb to watch for changes in a nodes left or right pointers.  From what I understand, you first need to set a break 
+	point, and once that is reached, you can 'watch' a variable visible in the current scope.  But I couldn't quite
+	work out how to get this to work the way I needed it to, and it didn't end up being helpful at all.
+
+	I ended up looking at the code we used in the second lab, to see how Karla set up her nodes, and finally managed
+	to work out how to get mine working.
+	
+	Also! I completely ran out of time, so I did not have a chance to solve the memory leaks from the first program.
+	I do plan to make that a priority before finishing the third program though.

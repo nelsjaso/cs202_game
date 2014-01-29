@@ -1,0 +1,86 @@
+Name: Jason Nelson
+File: design1.txt, where I talk about what I did for the first program
+
+
+	Design:
+		So I managed to get behind right off the bat, sorry this is so late!  I'm quickly getting caught back up though, and am
+		feeling much better about things.  I had some difficulty designing this program because I kept getting stuck over thinking
+		how the game itself would work, rather then designing something simple that I could expand that I could expand in to a
+		playable game over the next two programs.  
+
+		First I wanted to mention that I know some of the classes I wrote are pretty sparse, as far as functionality goes.  I promise
+		they will be expanded and made more interesting in later assignments!  In particular, the warrior and thief classes do not
+		do much of anything yet.  In this program, they just exist to help streamline character creation.  So right now they just 
+		have constructors, but I put some ideas I had for functions they might have when the game is playable in the .h file.  I also
+		plan to split up the classes in to seperate files, to make everything more readable and easier to find. So I'll have all the 
+		character related classes in one, and all the dungeon classes in another.
+
+		Now, to explain what I did for this program.  I put together some classes to handle an individual character, and another group
+		to handle the dungeon they will adventure through.  For a character I wrote: stats, character, warrior, thief classes.  All of these
+		have 'Is a' relationships, so warriors and thieves inherit from character, which itself inherits from stats.  The stats class manages
+		the six stats I wanted each character to have (strength, dexterity, intelligence, damage, armor, health.)  The character class will
+		handle everything any character will be able to do in each room of the dungeon (attack, search, move to the next room), and the
+		more specialized warrior and thief characters will have special functionality.  I want to eventually have it so warriors can try
+		to break through a locked door.  Thieves will be able to pick locks, and attempt to sneak past a monster instead of fighting it.
+
+		The dungeon classes I wrote are: story_piece, room, and dungeon.  The dungeon itself is an adjacency list, which in this case
+		is an array of room pointers.  Each index in the array represents a different floor in the dungeon, and each floor is a 
+		linear linked list of rooms.  So each room acts like a node, which for now just contains a piece of story information.  I want to
+		expand this some, so that each room contains an obstacle of some kind the player will have to overcome (locked door, monster, hidden
+		trap.)  
+
+
+	Other questions:
+
+		How well did the data structure perform for the assigned application?
+			I think this data structure will work great for my game, it allowed me to put the dungeon together just as
+			I had envisioned.  It will be a multi-floored dungeon, with a series of rooms full of nasty obstacles to 
+			overcome as I described above.
+
+		Would a different data structure work better?
+			I don't think so, for this particular application this one seems perfect.  
+
+		What was efficient about your design and use of the data structure?
+			An adjacency list is very efficient in this case.  It allows me instant access to any floor in the dungeon,
+			and minimal traversing to reach the rooms on that floor.  I don't need to visit every single room on every
+			floor just to get to one particular room.
+
+		What was not efficient?
+			Nothing springs to mind right now, but maybe I'll have something to add here as I expand the program over 
+			the next two assignments (hopefully not!)
+
+
+		What would you do differently if you had more time?
+			I would have liked to flesh things out a lot more, and start to implement more of the things that will make
+			this program in to a game.  I am still unsure of exactly what I will be doing to do this, so I may have
+			to make some significant changes to make everything work further down the road.  I'm pretty happy with what
+			I got done though, I got to play with some of the new things we have been talking about in class (inheritance,
+			initialization lists) and have a base to start from now.
+
+		Were there classes that had clear responsibilities?
+			Yes and no, my warrior and thief classes do not have any real responsibilities just yet.. but for this first
+			program I don't think they need them.  They will have much more responsibility in the future!
+
+
+		Did one class do that job that another should have?
+			I think my story_piece class could have been stuffed in to the room class, the way I have things set up
+			now.  But as I've talked about in a couple of places now.. I would like to expand everything more as I
+			figure out how to take what I made here and expand it in to a game.  So once again, this will likely
+			change in the future and will make sense existing on its own!
+
+
+		Where did hierarchical relationships fit in and would it be effective in a larger application?
+			I think I mostly answered this above, but to answer the second question.. I think this design would be
+			effective in a larger application.  When I was testing my classes out, in my main.cpp file, creating and 
+			modifying characters was very simple, as was loading and going through the dungeon.
+
+
+		What was not object oriented?
+			I guess I'd reiterate some of the things I've said before here.  Some of the classes I wrote did not
+			have enough responsibility to really warrant their existence, but of course they will as the program
+			grows.  They help demonstrate how things will work eventually, but don't do very much in this first
+			program.
+
+		Can you envision a design that would have been more object oriented (if you had more time?)
+			Yes! I most definitely would have made each class more interesting, and given them more responsibilities
+			to justify their existence, but I did run very short on time for this one.

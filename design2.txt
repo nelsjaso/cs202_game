@@ -1,0 +1,72 @@
+Name: Jason Nelson
+File: design2.txt, where I talk about my design choices for program 2.
+
+
+	Design:
+		I'm starting to get caught back up I think, though I'm right up against the deadline for getting this one in.  I do believe
+		that *fingers crossed* I've got enough time left to get the next one actually done on time!
+
+		So for this assignment, we had to expand our games to take advantage of dynamic binding.  And in addition, instead of just having a simple
+		test application, make the game playable.  I began by organizing the existing code a bit better by seperating like classes in to seperate
+		files.  Once that was done, I modified my character class by making it abstract and adding some virtual functions that its derived classes
+		would need to have in them.  Doing this, my warrior and thief classes would have a unique introduction and abilities and using a character
+		pointer, the correct functions would be called regardless of which type of character the player chose to play as.  In addition I added a new 
+		monster class, as well as three different monsters derived from it.  Similar to my character class, the base monster class is abstract and
+		has virtual functions to make each monster unique.
+
+		The other new addition to the program is a second data structure.  I decided to add an array of binary search trees as recommended.  I thought
+		having it keep track of the defeated monsters during the game would be a great fit.  So the tree in each slot of the array would be filled with
+		all of the monsters defeated on seperate floors of the dungeon.
+
+		After finishing the changes to the character and monster classes, I moved on to writing the game itself.  Unfortunately, due to time it 
+		doesn't involve any real strategy, and you can't lose.. but the game is playable!  When the game begins, the player can choose to 
+		play as either a warrior or thief.  Upon creating their character, they are dropped in to the dungeon where the story in the first room
+		is shown to them, and a new random monster is created.  The player can check their stats, or examine the monster before them before entering
+		combat with the monster.  Once combat begins, the player can choose to either perform a normal attack, or use their class's unique special
+		attack.  Combat continues until either the player or the monster dies, if the player defeats the monster, the next room is presented to them.
+		This continues until either the player dies, or they win an encounter in each room of the dungeon.  Afterward, the player gets an ending message
+		saying they died, or won the game.  And finally, the player is shown a list of all the monsters they managed to defeat during their journey via
+		the new data structure I wrote.
+
+
+	Other questions:
+	
+		How well did the data structure perform for the assigned application?
+			I think the array of bst's works really well for what I chose to use it for.  The player now gets a nice little recap of what happened
+			after the game ends.  I think it would be a lot more efficient if my game were longer, and there was a wider variety of monsters to fight
+			though.
+			
+		Would a different data structure work better?
+			In its current state, my game is very short so this data structure is a little excessive.  I think something simpler would perform
+			better, but it could be used in a bigger game where it would be a better fit.  If I can find some time to work on this more further down
+			the road, I will definitely try to take better advantage of it.
+		
+
+		What was efficient about your design and use of the data structure?
+			I think bst's are pretty fantastic data structures when implemented correctly, my design didn't add anything special really.
+
+
+		What was not efficient?
+			I guess as mentioned before, the small scale of my game sort of makes the complexity of a bst unnecessary.
+
+		What would you do differently if you had more time?
+			I really would have liked to make the game more interesting to play, as well as resolve the memory leaks I had from the first
+			program.
+
+		Were there classes that had clear responsibilities?
+			Yes! I think each new class has very clear responsibilities, and I managed to make the classes that were a bit light
+			from the first program more fleshed out.	
+
+		Did one class do the job that another should have?
+			I don't think so.
+		
+		Where did hierarchical relationships fit in and would it be effective in a larger application?
+			As I mentioned in the design part of this write up, my character and monster classes are now abstract, and their derived
+			classes all have unique functions defined in these base classes.  I definitely think they would be effective in a larger 
+			application, as now I could add many more character classes and monsters.  
+
+
+		Can you envision a design that would have been more object oriented (if you had more time?)
+			I think my design fits in to the object oriented design ideas pretty well now.  With more time I would probably try to make
+			the way someone would interface with some of the classes a bit better (less get/set functions.)
+	

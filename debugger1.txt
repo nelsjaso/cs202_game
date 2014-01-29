@@ -1,0 +1,17 @@
+Name: Jason Nelson
+File: debugger1.txt, where I talk about my use of a debugger for program 1
+
+	Debuggers were very helpful for me on this assignment!  Most of my classes were very simple, and were implemented
+	without any problems, but when I was working with my dungeon class (constructs the dungeon from an external file) 
+	I ran in to a problem.  Reading each line from the file, and adding a new room where appropriate was working great.
+	However, when I got to the last line in the file, the program would immediately segfault.  So I recompiled my program
+	with the -g option, which places symbolic information into the executable generated.  
+
+	After that, I ran that executable file through gdb, which at first wasn't super helpful because I just ran the program
+	without telling gdb to stop anywhere to let me look at what was happening before the crash.  So then I set a breakpoint
+	at my insert function, which is where the problem seemed to be, and ran it again.  When the program reached that function,
+	execution paused, and I could then step through the program one line at a time to see exactly what was happening.  
+
+	I the condition for the while loop I was using to go through the entire file was the problem.  It was not stopping where it
+	should have, and it was trying to insert garbage in to my dungeon!  So I tried another approach, which would not do that
+	and everything worked as I expected it to. 

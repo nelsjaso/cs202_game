@@ -1,0 +1,7 @@
+0 You enter the dungeon! there is something moving further down the darkened hallway.
+0 You move futher down the hall, and enter a dimly lit room lined with torches. 
+1 You descend to the next level, entering a small room at the bottom of the staircase.
+2 You descend a spiral staircase down to the next level, entering another long hallway.
+3 You climb down a ladder in to a new area.
+3 You move through a large ornate doorway, entering a well lit room.
+3 You have made it to the treasury of the dungeon, you quickly spot the prize you seek behind one final monster.

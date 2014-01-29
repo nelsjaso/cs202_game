@@ -1,0 +1,14 @@
+Name: Jason Nelson
+File: debugger3.txt, where I talk about my use of a debugging tool for program 3
+
+	For this program, I didn't have to use gdb to solve any problems with seg faults.  I was able to resolve all 
+	of those just by drawing pictures to see what was happening this time.  I did however use valgrind to great 
+	effect to resolve the lingering memory leaks I had from the first two assignments.
+
+	I've decided whoever made the valgrind tool must be some kind of wizard, I was surprised at how easy it was to
+	use it to find and fix all of the memory leaks I had.  I just had to use the tool with its full leak check 
+	option, and it gave a report that told me exactly where I had used a new operator that wasn't cleaned up after
+	the program was finished.  It sort of traces the function calls that lead up to the memory leak, and listed the
+	files, functions, and line numbers where it happened.  I was able to quickly identify how to fix each one, whether
+	it was simply forgetting to delete something I allocated in the application itself, or a destructor that wasn't
+	written correctly.

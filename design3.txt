@@ -1,0 +1,70 @@
+Name: Jason Nelson
+File: design3.txt, where I talk about design decisions for program 3.
+
+	Design:
+		Yay! this program is finally over, haha.  For this last c++ program, I added a new data structure, added
+		operator overloading to the character class, and fixed the lingering memory leaks from the first two programs.
+		
+		The suggested data structure this time around was a multi-threaded list, which is what I decided to implement.
+		I had a bit of a hard time deciding what I could use it for, since moving through my game is very linear and there
+		aren't many decisions to be made.  I eventually decided to use it to track game results.  So I basically have a linear
+		linked list, where each node contains a game number, and the result of that game.  Each node has two pointers in it,
+		one that leads to the next node in the list, and another that leads to the next win in the list.  So with this, I can
+		look at the results of every game, or I can skip over any losses and just see the games that the player managed to win.
+		I ultimately use this at the very start of my game, the player is presented with the percentage of games they have won.
+
+		For operator overloading, though the assignment asks us to overload the <<, =, + and += operators, I didn't feel that the
+		addition ones made sense for my game since there is only one character per game.  Instead I implemented the comparison operators,
+		hopefully that's an acceptable change!  These were pretty straightforward to implement, I used << to display the character, = to
+		assign one character to another. The comparison operators are used to compare a characters dexterity to that of a monster, in 
+		order to determine who goes first in combat.
+
+		And finally, I got around to fixing all of the memory leaks throughout the program, using the valgrind tool.  I discuss this
+		further in my debugger writeup.  
+
+	Other questions:
+
+		How well did the data structure perform for the assigned application?
+			I think my use of the multi-threaded list works quite well!  Though I guess much like the previous program, it may
+			be a little excessive for such a small game.
+
+
+		Would a different data structure work better?
+			I think a simple dynamically allocated array would have performed best for this particular application.  But the data
+			structure I wrote would perform reasonably well in a larger application I think.	
+
+
+		What was efficient about your design and use of the data structure?
+			I try to work at the head of the list as much as possible, to limit traversal over the entire list.  And any time
+			I do need to traverse, like in the case of remove and retrieve, I make sure to stop as soon as I find the correct 
+			node.
+	
+
+		What was not efficient?
+			The way I implemented my link_wins function could have been better I think, right now I traverse the whole list 
+			after building it to link the next_win pointers up. 
+
+
+		What would you do differently if you had more time?
+			I would have liked to come up with a more elegant solution for linking the nodes with wins in them together,
+			maybe I could have done that while building the list instead of afterward like I do now.
+	
+
+		Were there classes that had clear responsibilities?
+			Yes I think so, I only added two classes this time around but both of them do have very clear responsibilities.
+		
+
+		Did one class do the job that another should have?
+			No definitely not, they both have unique jobs and neither of them step on the others toes.
+	
+		Where did hierarchical relationships fit in and would it be effective in a larger application?
+			My multi-threaded list class (win_rate) has a 'has a' relationship with the node class.  I think it would be effective
+			in a larger application, it could be expanded to a larger data structure that contained multiple win_rates even.
+
+		What was not object oriented?
+			I don't think I introduced anything that was not object oriented this time around, but looking back at everything
+			I think I have more set/get functions throughout the code then I would have liked.
+
+		Can you envision a design that would have been more object oriented (if you had more time?)
+			Yes I can!  with more time I would have liked to refine everything much more then I did.
+			
